@@ -15,9 +15,6 @@ const limiter = rateLimit({
 })
 
 app.use(limiter)
-app.use("/",(req,res)=>{
-    res.send("welcome to harshit's task manager website")
-})
 app.use("/",userRouter)
 app.use(authentication)
 app.use("/",taskRouter)
