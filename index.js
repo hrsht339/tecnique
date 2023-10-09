@@ -12,11 +12,12 @@ app.use(express.json())
 const limiter = rateLimit({
 	windowMs: 1 * 60 * 1000, // 1 minute
 	limit: 10, // Limit each IP to 10 requests per `window` (here, per 1 minute)
-	standardHeaders: 'draft-7',
-	legacyHeaders: false,
 })
 
 app.use(limiter)
+app.use("/",(req,res)=>{
+    res.send("welcome to harshit's task manager website")
+})
 app.use("/",userRouter)
 app.use(authentication)
 app.use("/",taskRouter)
